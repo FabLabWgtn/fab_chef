@@ -28,15 +28,15 @@ nodes
 # !cookbooks/chef_workstation
 
 # ##Chef
-# .kitchen/
-# .vagrant
+ .kitchen/
+ .vagrant
 # nodes
 # metadata.json
 
 # ##ruby
-# *.gem
-# Gemfile
-# Gemfile.lock
+ *.gem
+ Gemfile
+ Gemfile.lock
 .rake_test_cache
 
 # ## Rails Heroku and other bits to ignore
