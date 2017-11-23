@@ -19,7 +19,7 @@ nodes
 
 # ## OS junk files
 # [Tt]humbs.db
- *.DS_Store
+*.DS_Store
 
 # ## Example of the workstation pattern.
 # !/cookbooks/chef_workstation/files/default/bundler/Gemfile
@@ -28,8 +28,8 @@ nodes
 # !cookbooks/chef_workstation
 
 # ##Chef
- .kitchen/
- .vagrant
+.kitchen/
+.vagrant
 # nodes
 # metadata.json
 
@@ -99,7 +99,7 @@ nodes
 # *.bak
 # *.[Cc]ache
 # *.ilk
-# *.log
+*.log
 # *.lib
 # *.sbr
 # *.schemaview
@@ -121,4 +121,4 @@ nodes
 # .svn
 
 # ## Office Temp Files
- ~$*
+~$*
