@@ -1,0 +1,13 @@
+{
+    "name": "fabapps",
+    "description": "Commonly used applications for design and programing",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "default_attributes": {
+    },
+    "override_attributes": {
+    },
+    "run_list": [
+        "recipe[fab_apps::default]"
+    ]
+}
