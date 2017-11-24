@@ -9,9 +9,9 @@ apt_repository 'kicad' do
   components ['main']
 end
 
-#apt_package 'kicad' do
-#    action :install
-#end
+apt_package 'kicad' do
+    action :install
+end
 
 apt_package 'default-jdk' do
     action :install
