@@ -64,11 +64,6 @@ apt_repository 'simplescreenrecorder' do
   components ['main']
 end
 
-apt_repository 'kicad' do
-  uri          'ppa:js-reynaud/kicad-4'
-  components ['main']
-end
-
 apt_package 'vlc' do
     action :install
 end
@@ -118,10 +113,6 @@ apt_package 'brackets' do
 end
 
 apt_package 'simplescreenrecorder' do
-    action :install
-end
-
-apt_package 'kicad' do
     action :install
 end
 

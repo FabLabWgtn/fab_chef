@@ -96,11 +96,6 @@ describe apt('ppa:maarten-baert/simplescreenrecorder') do
     it { should be_enabled }
 end
 
-describe apt('ppa:js-reynaud/kicad-4') do
-    it { should exist }
-    it { should be_enabled }
-end
-
 describe package('cura') do
   it { should be_installed }
 end
@@ -118,9 +113,5 @@ describe package('brackets') do
 end
 
 describe package('simplescreenrecorder') do
-  it { should be_installed }
-end
-
-describe package('kicad') do
   it { should be_installed }
 end
