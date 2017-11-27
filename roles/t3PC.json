@@ -1,0 +1,22 @@
+{
+   "name": "t3PC",
+   "description": "Guest setup for tire 3 pcs",
+   "json_class": "Chef::Role",
+   "chef_type": "role",
+   "default_attributes": {
+       "filesystem": {
+           "os": "/dev/sdb1",
+           "guest-data": "/dev/sdb2"
+       },
+       "networking": {
+           "wireless": "wlp8s0",
+           "wired": "eno1"
+       }
+   },
+   "override_attributes": {
+   },
+   "run_list": ["recipe[guest_setup::default]"
+   ],
+   "env_run_lists": {
+   }
+}

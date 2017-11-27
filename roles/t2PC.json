@@ -1,0 +1,22 @@
+{
+   "name": "t2PC",
+   "description": "Guest setup for tire 2 pcs",
+   "json_class": "Chef::Role",
+   "chef_type": "role",
+   "default_attributes": {
+       "filesystem": {
+           "os": "/dev/sda3",
+           "guest-data": "/dev/sda4"
+       },
+       "networking": {
+           "wireless": "wls6",
+           "wired": "eno1"
+       }
+   },
+   "override_attributes": {
+   },
+   "run_list": ["recipe[guest_setup::default]"
+   ],
+   "env_run_lists": {
+   }
+}

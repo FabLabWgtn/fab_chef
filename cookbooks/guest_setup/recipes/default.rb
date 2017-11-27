@@ -1,12 +1,8 @@
 #
-# Cookbook:: guest_login_setup
+# Cookbook:: guest_setup
 # Recipe:: default
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
-apt_update 'Update the apt cache daily' do
-  frequency 86_400
-  action :periodic
-end
 
 group 'fabshare' do
     action :create
@@ -33,6 +29,10 @@ template '/etc/guest-session/prefs.sh' do
   group 'root'
   mode '0755'
   action :create
+  variables({
+      :wireless => node['networking']['wireless'],
+      :wired => node['networking']['wired']
+  })
 end
 
 
