@@ -1,10 +1,10 @@
 name 'guest_setup'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'All Rights Reserved'
+maintainer 'Fab Lab Wgtn'
+maintainer_email 'fablabwgtn@massey.ac.nz'
+license 'BSD-3-Clause'
 description 'Installs/Configures guest_setup'
 long_description 'Installs/Configures guest_setup'
-version '0.1.7'
+version '0.2.3'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are

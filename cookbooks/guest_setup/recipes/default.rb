@@ -64,6 +64,60 @@ file '/etc/guest-session/skel/.config/gtk-3.0/bookmarks' do
   content 'file:///var/guest-data'
   mode '0655'
   owner 'root'
+  group 'fabshare'
+  action :create
+end
+
+mount '/var/guest-data' do
+  device node['filesystem']['guest-data']
+  fstype 'ntfs-3g'
+  action :enable
+end
+
+link '/etc/guest-session/skel/Desktop/guest-data' do
+  to '/var/guest-data'
+end
+
+link '/etc/guest-session/skel/guest-data' do
+  to '/var/guest-data'
+end
+
+template '/etc/guest-session/skel/Desktop/cura.desktop' do
+  source 'shortcut_cura.desktop.erb'
+  owner 'root'
   group 'root'
+  mode '0755'
+  action :create
+end
+
+template '/etc/guest-session/skel/Desktop/atom.desktop' do
+  source 'shortcut_atom.desktop.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+template '/etc/guest-session/skel/Desktop/brackets.desktop' do
+  source 'shortcut_brackets.desktop.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+template '/etc/guest-session/skel/Desktop/eagle.desktop' do
+  source 'shortcut_eagle.desktop.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+template '/etc/guest-session/skel/Desktop/kicad.desktop' do
+  source 'shortcut_kicad.desktop.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
   action :create
 end

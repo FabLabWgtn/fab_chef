@@ -1,10 +1,8 @@
 
 sudo usermod -aG fabshare $USER
 sudo usermod -aG dialout $USER
-sudo usermod -aG fabmodules $USER
+#sudo usermod -aG fabmodules $USER
 #sudo ifconfig <%= @wired %> down
 sudo ifconfig <%= @wireless %> up
 sudo nmcli device wifi connect MUGuests iface <%= @wireless %> --timeout 3
 chown -R $USER: $HOME
-
-# <%= @wireless %>
