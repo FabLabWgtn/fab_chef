@@ -52,6 +52,14 @@ template '/etc/guest-session/skel/.config/upstart/firefox-with-url.conf' do
   action :create
 end
 
+template '/etc/udev/rules.d/99-avrice.rules' do
+  source '99-avrice.rules.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
+end
+
 file '/etc/guest-session/skel/.skip-guest-warning-dialog' do
   content ''
   mode '0655'
