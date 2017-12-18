@@ -8,6 +8,10 @@ group 'fabshare' do
     action :create
 end
 
+apt_package 'firmware-b43-installer' do
+    action :install
+end
+
 directory '/var/guest-data' do
   owner 'root'
   group 'fabshare'
