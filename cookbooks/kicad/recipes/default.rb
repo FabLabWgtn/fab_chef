@@ -34,3 +34,19 @@ git '/opt/FreeRouting' do
   depth 1
   action :sync
 end
+
+template '/usr/share/kicad/library/fab.lib' do
+  source 'fab.lib.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
+end
+
+template '/usr/share/kicad/modules/fab.mod' do
+  source 'fab.mod.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
+end
