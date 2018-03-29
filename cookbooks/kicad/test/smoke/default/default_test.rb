@@ -31,7 +31,48 @@ describe file('/opt/FreeRouting/deploy/run.sh') do
  it { should be_executable }
 end
 
-#sudo mkdir /opt/FreeRouting
-#sudo chown fab-admin:fab-admin FreeRouting
-#cd /opt/FreeRouting
-#git clone --depth=1 https://github.com/Engidea/FreeRoutingNew.git .
+describe file('/usr/share/kicad/modules/SparkFun-KiCad-Modules') do
+    its('link_path') { should eq '/opt/kicad-libraries/SparkFun-KiCad-Libraries/Footprints' }
+end
+
+describe file('/usr/share/kicad/library/SparkFun-KiCad-Libraries') do
+    its('link_path') { should eq '/opt/kicad-libraries/SparkFun-KiCad-Libraries/Libraries' }
+end
+
+describe file('/usr/share/kicad/modules/digikey-footprints.pretty') do
+    its('link_path') { should eq '/opt/kicad-libraries/digikey-kicad-library/digikey-footprints.pretty' }
+end
+
+describe file('/usr/share/kicad/library/digikey-symbol') do
+    its('link_path') { should eq '/opt/kicad-libraries/digikey-kicad-library/digikey-symbols' }
+end
+
+describe file('/usr/share/kicad/library/fab.lib') do
+ it { should exist }
+ it { should be_file }
+ its('mode') { should cmp '0644' }
+end
+
+describe file('/usr/share/kicad/modules/fab.mod') do
+ it { should exist }
+ it { should be_file }
+ its('mode') { should cmp '0644' }
+end
+
+describe file('/etc/guest-session/skel/.config/kicad/fp_lib_table') do
+ it { should exist }
+ it { should be_file }
+ its('mode') { should cmp '0644' }
+end
+
+describe file('/opt/kicad-libraries/SparkFun-KiCad-Libraries') do
+ it { should exist }
+ its('size') { should > 64 }
+ it { should be_directory }
+end
+
+describe file('/opt/kicad-libraries/digikey-kicad-library') do
+ it { should exist }
+ its('size') { should > 64 }
+ it { should be_directory }
+end
