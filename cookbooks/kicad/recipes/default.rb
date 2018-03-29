@@ -104,8 +104,8 @@ link '/usr/share/kicad/library/digikey-symbol' do
   to '/opt/kicad-libraries/digikey-kicad-library/digikey-symbols'
 end
 
-template '/etc/guest-session/skel/.config/kicad/fp_lib_table' do
-  source 'fp_lib_table.erb'
+template '/etc/guest-session/skel/.config/kicad/fp-lib-table' do
+  source 'fp-lib-table.erb'
   owner 'root'
   group 'root'
   mode '0644'

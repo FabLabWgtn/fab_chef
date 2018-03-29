@@ -59,7 +59,7 @@ describe file('/usr/share/kicad/modules/fab.mod') do
  its('mode') { should cmp '0644' }
 end
 
-describe file('/etc/guest-session/skel/.config/kicad/fp_lib_table') do
+describe file('/etc/guest-session/skel/.config/kicad/fp-lib-table') do
  it { should exist }
  it { should be_file }
  its('mode') { should cmp '0644' }
