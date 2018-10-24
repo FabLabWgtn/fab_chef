@@ -21,11 +21,6 @@ group 'fab-admin' do
     action :create
 end
 
-group 'dialout' do
-  action :manage
-  members ['fab-admin']
-end
-
 directory '/opt/FreeRouting' do
     owner 'root'
     group 'fab-admin'

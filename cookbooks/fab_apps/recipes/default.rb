@@ -116,6 +116,11 @@ apt_package 'simplescreenrecorder' do
     action :install
 end
 
+group 'dialout' do
+  action :manage
+  members ['fab-admin']
+end
+
 #Xenial Xerus
 #vlc pandoc gcc-avr avr-libc avrdude openscad inkscape gimp blender
 
