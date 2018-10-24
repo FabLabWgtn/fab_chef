@@ -4,7 +4,7 @@ maintainer_email 'fablabwgtn@massey.ac.nz'
 license 'All Rights Reserved'
 description 'Installs/Configures fab_apps'
 long_description 'Installs/Configures fab_apps'
-version '0.1.2'
+version '0.1.3'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
