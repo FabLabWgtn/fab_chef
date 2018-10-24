@@ -118,6 +118,7 @@ end
 
 group 'dialout' do
   action :manage
+  append true
   members ['fab-admin']
 end
 
