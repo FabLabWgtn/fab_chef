@@ -100,32 +100,13 @@ bash "install_embroider" do
 end
 
 #download inkstitch source
-git '/opt/inkstitch' do
-  repository 'https://github.com/lexelby/inkstitch'
-  action :checkout
-  revision 'master'
-  notifies :run, "bash[install_inkstitch]", :immediately
- end
-
-#install dependencies and switch to tested working version
-bash "install_inkstitch" do
-  user "root"
-  cwd "/opt/inkstitch"
-  code <<-EOH
-  git checkout 30cbe18
-  chown -R fab-admin:fab-admin *
-  pip2 install --no-cache-dir -r requirements.txt
-  EOH
-  action :nothing
+remote_file "/opt/inkstitch/inkstitch-v1.20.0-linux-x86_64.tar.gz" do
+   source "https://github.com/inkstitch/inkstitch/releases/download/v1.20.0/inkstitch-v1.20.0-linux-x86_64.tar.gz"
 end
 
-#TODO: Build from precompiled source once it becomes more stable
-#remote_file "/opt/inkstitch/inkstitch-v1.1.0-Linux-x86_64.tar.gz" do
-#  source "https://github.com/lexelby/inkstitch/releases/download/v1.1.0/inkstitch-v1.1.0-Linux-x86_64.tar.gz"
-#  checksum 'fd87b314bdb6843dba74742402c7cc9b6a71a8114954a17dd4f908b796a7554a'
-#  notifies :run, "bash[install_inkstitch]", :immediately
-#end
-# tar -zxf /opt/inkstitch/inkstitch-v1.1.0-Linux-x86_64.tar.gz
+execute 'install inkstitch to extensions directory' do
+  command 'tar -zxvf /opt/inkstitch/inkstitch-v1.20.0-linux-x86_64.tar.gz -C /usr/share/inkscape/extensions/'
+end
 
 #make folders to install inkscape folders for guest users
 %w[ /etc/guest-session /etc/guest-session/skel /etc/guest-session/skel/.config /etc/guest-session/skel/.config/inkscape /etc/guest-session/skel/.config/inkscape/extensions ].each do |path|
@@ -134,45 +115,4 @@ end
     group 'root'
     mode '0755'
   end
-end
-
-#symlink inkscape extension to inkstitch files
-link '/etc/guest-session/skel/.config/inkscape/extensions/inkstitch' do
-  to '/opt/inkstitch'
-end
-
-link '/etc/guest-session/skel/.config/inkscape/extensions/embroider.inx' do
-  to '/opt/inkstitch/embroider.inx'
-end
-
-link '/etc/guest-session/skel/.config/inkscape/extensions/embroider.inx' do
-  to '/opt/inkstitch/embroider.inx'
-end
-
-link '/etc/guest-session/skel/.config/inkscape/extensions/embroider.py' do
-  to '/opt/inkstitch/embroider.py'
-end
-
-link '/etc/guest-session/skel/.config/inkscape/extensions/embroider_update.inx' do
-  to '/opt/inkstitch/embroider_update.inx'
-end
-
-link '/etc/guest-session/skel/.config/inkscape/extensions/embroider_params.inx' do
-  to '/opt/inkstitch/embroider_params.inx'
-end
-
-link '/etc/guest-session/skel/.config/inkscape/extensions/embroider_simulate.inx' do
-  to '/opt/inkstitch/embroider_simulate.inx'
-end
-
-link '/etc/guest-session/skel/.config/inkscape/extensions/embroider_update.py' do
-  to '/opt/inkstitch/embroider_update.py'
-end
-
-link '/etc/guest-session/skel/.config/inkscape/extensions/embroider_params.py' do
-  to '/opt/inkstitch/embroider_params.py'
-end
-
-link '/etc/guest-session/skel/.config/inkscape/extensions/embroider_simulate.py' do
-  to '/opt/inkstitch/embroider_simulate.py'
 end
