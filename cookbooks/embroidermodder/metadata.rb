@@ -4,7 +4,7 @@ maintainer_email 'fablabwgtn@massey.ac.nz'
 license 'GNU GPLv3'
 description 'Installs/Configures embroidermodder'
 long_description 'Installs/Configures embroidermodder'
-version '0.1.0'
+version '0.2.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
