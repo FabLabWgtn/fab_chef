@@ -51,56 +51,13 @@ describe file('/opt/Embroidermodder') do
  it { should be_directory }
 end
 
-describe file('/opt/inkstitch') do
- it { should exist }
- its('type') { should eq :directory }
- it { should be_directory }
-end
-
-
-describe file('/opt/inkstitch/embroider.py') do
-  its('owner') { should eq 'fab-admin' }
-  it { should be_file }
-end
-
 describe file('/opt/Embroidermodder/embroidermodder2/embroidermodder2') do
  it { should exist }
  it { should be_file }
  it { should be_executable }
 end
 
-describe file('/etc/guest-session/skel/.config/inkscape/extensions/inkstitch') do
-    its('link_path') { should eq '/opt/inkstitch' }
-end
-
-describe file('/etc/guest-session/skel/.config/inkscape/extensions/embroider.inx') do
-    its('link_path') { should eq '/opt/inkstitch/embroider.inx' }
-end
-
-describe file('/etc/guest-session/skel/.config/inkscape/extensions/embroider.py') do
-    its('link_path') { should eq '/opt/inkstitch/embroider.py' }
-end
-
-describe file('/etc/guest-session/skel/.config/inkscape/extensions/embroider_update.inx') do
-    its('link_path') { should eq '/opt/inkstitch/embroider_update.inx' }
-end
-
-describe file('/etc/guest-session/skel/.config/inkscape/extensions/embroider_params.inx') do
-    its('link_path') { should eq '/opt/inkstitch/embroider_params.inx' }
-end
-
-describe file('/etc/guest-session/skel/.config/inkscape/extensions/embroider_simulate.inx') do
-    its('link_path') { should eq '/opt/inkstitch/embroider_simulate.inx' }
-end
-
-describe file('/etc/guest-session/skel/.config/inkscape/extensions/embroider_update.py') do
-    its('link_path') { should eq '/opt/inkstitch/embroider_update.py' }
-end
-
-describe file('/etc/guest-session/skel/.config/inkscape/extensions/embroider_params.py') do
-    its('link_path') { should eq '/opt/inkstitch/embroider_params.py' }
-end
-
-describe file('/etc/guest-session/skel/.config/inkscape/extensions/embroider_simulate.py') do
-    its('link_path') { should eq '/opt/inkstitch/embroider_simulate.py' }
+describe file('/usr/share/inkscape/extensions/inkstitch.py') do
+ it { should exist }
+  it { should be_file }
 end
