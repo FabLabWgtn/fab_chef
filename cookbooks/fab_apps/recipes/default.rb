@@ -72,18 +72,6 @@ apt_package 'pandoc' do
     action :install
 end
 
-apt_package 'gcc-avr' do
-    action :install
-end
-
-apt_package 'avr-libc' do
-    action :install
-end
-
-apt_package 'avrdude' do
-    action :install
-end
-
 apt_package 'openscad' do
     action :install
 end

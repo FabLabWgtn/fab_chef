@@ -38,6 +38,8 @@ nodes
  Gemfile
  Gemfile.lock
 .rake_test_cache
+.ruby-version
+.ruby-gemset
 
 # ## Rails Heroku and other bits to ignore
 # *.log
@@ -122,3 +124,4 @@ nodes
 
 # ## Office Temp Files
 ~$*
+.kitchen.local.yml

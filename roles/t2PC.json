@@ -15,7 +15,9 @@
    },
    "override_attributes": {
    },
-   "run_list": ["recipe[guest_setup::default]"
+   "run_list": [
+     "recipe[avr_programming::default]",
+     "recipe[guest_setup::default]"
    ],
    "env_run_lists": {
    }
