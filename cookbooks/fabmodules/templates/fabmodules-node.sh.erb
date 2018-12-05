@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Launching fabmodules as" $USER | ts '[%Y-%m-%d %H:%M:%S]' >> /var/log/fabmodules/mod_server.log
+exec node /opt/fabmodules/mod_server/mod_server.js | ts '[%Y-%m-%d %H:%M:%S]' >> /var/log/fabmodules/mod_server.log
