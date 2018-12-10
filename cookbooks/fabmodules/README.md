@@ -1,21 +1,15 @@
 # fabmodules
 
 This cookbook installs [fabmodules](https://github.com/FabModules/fabmodules-html5) from the [FabLabWgtn git repo](https://github.com/FabLabWgtn/fabmodules-html5).
-It creates a system service to automatically run on startup and creates a desktop shortcut for [guest](https://github.com/FabLabWgtn/fab_chef/tree/master/cookbooks/guest_setup) users.
+It creates a desktop shortcut for [guest](https://github.com/FabLabWgtn/fab_chef/tree/master/cookbooks/guest_setup) users and auto-starts when they login.
 
 **Note:** This script does _not_ install or configure any machines automatically.  
 Vinyl cutters / PCB mill need to be manually setup matching output setting from [fabmodules](https://github.com/FabLabWgtn/fabmodules-html5/tree/master/outputs)  
 
 TODO:  
-Add and autostart systemctl services for fablocal.service & fabnode.services
-```
-systemctl enable fablocal.service
-systemctl start fablocal.service
-systemctl status fablocal.service
-```  
+Move guest logs from `/tmp/` to `/var/log/fabmodules` when guests logout.
 
-`systemctl daemon-reload`  
-
+Notes from vinyl install
 ```
 #lsusb - find that roland vinyl cutter
 #sudo usb_printerid /dev/usb/lp0

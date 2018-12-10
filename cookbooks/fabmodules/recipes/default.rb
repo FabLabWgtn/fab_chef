@@ -54,10 +54,6 @@ apt_package 'moreutils' do
     action :install
 end
 
-execute 'install npm dependants' do
-  command 'npm install node-static serve-static ws'
-end
-
 apt_package 'cups-bsd' do
     action :install
 end
@@ -84,6 +80,11 @@ git '/opt/fabmodules' do
   revision 'master'
   depth 1
   action :checkout
+end
+
+
+execute 'install node_modules' do
+  command 'npm install /opt/fabmodules/'
 end
 
 directory '/opt/fabmodules' do
@@ -113,46 +114,29 @@ file '/var/log/fabmodules/mod_server.log' do
   group 'fabmodules'
 end
 
-#Create system service to auto luanch fabmodules
-template '/usr/local/bin/fabmodules-local.sh' do
-  source 'fabmodules-local.sh.erb'
-  owner 'root'
-  group 'root'
-  mode '0744'
-  action :create
-end
-
-template '/etc/systemd/system/fablocal.service' do
-  source 'fablocal.service.erb'
-  owner 'root'
-  group 'root'
-  mode '0664'
-  action :create
-end
-
-template '/usr/local/bin/fabmodules-node.sh' do
-  source 'fabmodules-node.sh.erb'
-  owner 'root'
-  group 'root'
-  mode '0744'
-  action :create
-end
-
-template '/etc/systemd/system/fabnode.service' do
-  source 'fabnode.service.erb'
-  owner 'root'
-  group 'root'
-  mode '0664'
-  action :create
-end
-
-#add desktop shortcut for guest users
-%w[ /etc/guest-session /etc/guest-session/skel /etc/guest-session/skel/Desktop ].each do |path|
+#add desktop shortcut & startup script for guest users
+%w[ /etc/guest-session /etc/guest-session/skel /etc/guest-session/skel/Desktop /etc/guest-session/skel/.config /etc/guest-session/skel/.config/autostart ].each do |path|
   directory path do
     owner 'root'
     group 'root'
     mode '0755'
   end
+end
+
+template '/usr/local/bin/fabmodules-start.sh' do
+  source 'fabmodules-start.sh.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+template '/etc/guest-session/skel/.config/autostart/fabmodules-autostart.desktop' do
+  source 'fabmodules-autostart.desktop.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
 end
 
 template '/etc/guest-session/skel/Desktop/fabmodules.desktop' do

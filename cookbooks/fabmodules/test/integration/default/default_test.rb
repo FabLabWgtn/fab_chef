@@ -74,6 +74,12 @@ describe file('/opt/fabmodules') do
  its('mode') { should cmp '0775' }
 end
 
+describe file('/opt/fabmodules/node_modules') do
+ it { should exist }
+ it { should be_directory }
+ its('mode') { should cmp '0755' }
+end
+
 describe file('/opt/fabmodules/mod_server') do
  it { should exist }
  its('group') { should eq 'fabmodules' }
@@ -87,14 +93,14 @@ describe file('/var/log/fabmodules/mod_server.log') do
  its('mode') { should cmp '0775' }
 end
 
-describe file('/usr/local/bin/fabmodules-node.sh') do
+describe file('/etc/guest-session/skel/.config/autostart/fabmodules-autostart.desktop') do
  it { should exist }
- its('group') { should eq 'root' }
- its('mode') { should cmp '0744' }
 end
 
-describe file('/etc/systemd/system/fabnode.service') do
+describe file('/usr/local/bin/fabmodules-start.sh') do
  it { should exist }
- its('group') { should eq 'root' }
- its('mode') { should cmp '0664' }
+end
+
+describe file('/usr/local/bin/fabmodules-start.sh') do
+ it { should exist }
 end
