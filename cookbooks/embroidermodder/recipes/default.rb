@@ -100,12 +100,12 @@ bash "install_embroider" do
 end
 
 #download inkstitch source
-remote_file "/opt/inkstitch/inkstitch-v1.20.0-linux-x86_64.tar.gz" do
-   source "https://github.com/inkstitch/inkstitch/releases/download/v1.20.0/inkstitch-v1.20.0-linux-x86_64.tar.gz"
+remote_file "/opt/inkstitch/inkstitch-v1.24.0-linux-x86_64-en_US.tar.gz" do
+   source "https://github.com/inkstitch/inkstitch/releases/download/v1.24.0/inkstitch-v1.24.0-linux-x86_64-en_US.tar.gz"
 end
 
 execute 'install inkstitch to extensions directory' do
-  command 'tar -zxvf /opt/inkstitch/inkstitch-v1.20.0-linux-x86_64.tar.gz -C /usr/share/inkscape/extensions/'
+  command 'tar -zxvf /opt/inkstitch/inkstitch-v1.24.0-linux-x86_64-en_US.tar.gz -C /usr/share/inkscape/extensions/'
 end
 
 #make folders to install inkscape folders for guest users
